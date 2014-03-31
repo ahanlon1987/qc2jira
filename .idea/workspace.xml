@@ -85,7 +85,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="785" selection-end="785" vertical-scroll-proportion="0.20240964" vertical-offset="0" max-vertical-offset="830">
+            <state line="10" column="2" selection-start="665" selection-end="665" vertical-scroll-proportion="0.16867469" vertical-offset="0" max-vertical-offset="830">
               <folding />
             </state>
           </provider>
@@ -339,12 +339,12 @@
       <workItem from="1396224867791" duration="10581000" />
       <workItem from="1396303166531" duration="1581000" />
       <workItem from="1396304979081" duration="324000" />
-      <workItem from="1396306979742" duration="509000" />
+      <workItem from="1396306979742" duration="555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17148000" />
+    <option name="totallyTimeSpent" value="17194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="999" extended-state="0" />
@@ -446,7 +446,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="785" selection-end="785" vertical-scroll-proportion="0.20240964" vertical-offset="0" max-vertical-offset="830">
+        <state line="10" column="2" selection-start="665" selection-end="665" vertical-scroll-proportion="0.16867469" vertical-offset="0" max-vertical-offset="830">
           <folding />
         </state>
       </provider>
