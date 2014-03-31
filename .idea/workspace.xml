@@ -67,7 +67,7 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="0" selection-start="2301" selection-end="2301" vertical-scroll-proportion="0.6240713" vertical-offset="672" max-vertical-offset="1568">
+            <state line="55" column="48" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.66567606" vertical-offset="322" max-vertical-offset="1428">
               <folding />
             </state>
           </provider>
@@ -316,12 +316,12 @@
       <created>1396134708881</created>
       <updated>1396134708881</updated>
       <workItem from="1396134712801" duration="4153000" />
-      <workItem from="1396224867791" duration="8120000" />
+      <workItem from="1396224867791" duration="8602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12273000" />
+    <option name="totallyTimeSpent" value="12755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="819" extended-state="0" />
@@ -381,7 +381,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="2301" selection-end="2301" vertical-scroll-proportion="0.6240713" vertical-offset="672" max-vertical-offset="1568">
+        <state line="55" column="48" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.66567606" vertical-offset="322" max-vertical-offset="1428">
           <folding />
         </state>
       </provider>

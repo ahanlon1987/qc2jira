@@ -22,22 +22,16 @@ excel('test.xlsx', function(error, data){
         throw error;
     }
 
-
     var requirementNumberCollection = new Backbone.Collection(data);
     console.log("Number of requirements found: "  + requirementNumberCollection.size());
 
-    //Locking ths down to one requirement.
-    var flag = true;
+
     requirementNumberCollection.forEach(function(model){
 
-        if (flag){
-            if(model.get(0)){
-                console.log("Looking for attribute: " + model.get(0));
-                var issueNumber = lookupIssue(model.get(0));
-            }
+        if(model.get(0)){
+            console.log("Looking for attribute: " + model.get(0));
+            var issueNumber = lookupIssue(model.get(0));
         }
-
-        flag = false;
 
     });
 
@@ -66,19 +60,16 @@ function lookupIssue(requirementNumber) {
             var keys = '';
             var sprints = '';
             var delim = ' ';
+
             searchResultIssues.forEach(function(foundIssue){
                 keys += delim + foundIssue.get('key');
-//                console.log("foundIssue: " + JSON.stringify(foundIssue));
-
-                var sprint = [];
                 var fields= foundIssue.get('fields');
+                var sprint = [];
                 sprint = fields[SPRINT_FIELD];
-//                console.log("Sprint Object: " + JSON.stringify(sprint));
-//                console.log("Sprint Name: " + sprint[0]);
-                var charNum = sprint[0].search("name=");
-//                console.log("Sprint: "+ sprint[0].substr(charNum, 15));
-                sprints += sprint[0].substr(charNum, 15);
-
+                if(sprint != null){
+                    var charNum = sprint[0].search("name=") + 5;
+                    sprints += sprint[0].substr(charNum, 9);
+                }
                 delim = ', ';
 
             });
@@ -89,7 +80,6 @@ function lookupIssue(requirementNumber) {
             key:keys,
             sprint:sprints
         });
-
 
         console.log(JSON.stringify(finalMapping));
     });
