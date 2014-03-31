@@ -1,6 +1,7 @@
 var JiraApi = require("jira").JiraApi;
 var excel = require("excel");
 var Backbone = require("backbone");
+var nodeFS = require("fs");
 
 var config = {
     "user": "jirabot",
@@ -11,8 +12,10 @@ var config = {
 
 
 var SPRINT_FIELD = 'customfield_10550';
-
 var finalMapping = new Backbone.Collection();
+var numberOfRequirements = 0;
+var outputString = '';
+
 
 excel('test.xlsx', function(error, data){
     console.log('inside parse excel');
@@ -23,24 +26,24 @@ excel('test.xlsx', function(error, data){
     }
 
     var requirementNumberCollection = new Backbone.Collection(data);
-    console.log("Number of requirements found: "  + requirementNumberCollection.size());
 
+    numberOfRequirements = requirementNumberCollection.size();
+    console.log("Number of requirements found: "  + numberOfRequirements);
 
     requirementNumberCollection.forEach(function(model){
-
         if(model.get(0)){
             console.log("Looking for attribute: " + model.get(0));
             var issueNumber = lookupIssue(model.get(0));
         }
-
     });
-
 });
 
 
 
 
 function lookupIssue(requirementNumber) {
+
+
     var query = 'text~' + '"' + requirementNumber + '"';
     console.log("inside of lookupIssue(), looking for: " + query);
     var jira = new JiraApi('https', config.host, config.port, config.user, config.password, '2');
@@ -68,12 +71,13 @@ function lookupIssue(requirementNumber) {
                 sprint = fields[SPRINT_FIELD];
                 if(sprint != null){
                     var charNum = sprint[0].search("name=") + 5;
-                    sprints += sprint[0].substr(charNum, 9);
+                    sprints += delim + sprint[0].substr(charNum, 9);
                 }
                 delim = ', ';
 
             });
         }
+
 
         finalMapping.add({
             requirementNumber: requirementNumber,
@@ -81,7 +85,19 @@ function lookupIssue(requirementNumber) {
             sprint:sprints
         });
 
-        console.log(JSON.stringify(finalMapping));
+        outputString += requirementNumber + ' | ' + (keys ? keys : 'NO JIRA FOUND') + ' | ' + ( sprints ? sprints : 'NO SPRINT FOUND') + '\n';
+
+        if (finalMapping.size() == numberOfRequirements) {
+            nodeFS.writeFile("output.txt", outputString, function(error) {
+
+                if (error){
+                   console.log(error);
+                }
+
+                console.log("Finished writing to output.txt.");
+            })
+        }
+
     });
 }
 
