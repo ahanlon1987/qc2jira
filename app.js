@@ -85,6 +85,10 @@ function lookupIssue(requirementNumber) {
             sprint:sprints
         });
 
+        if (keys && !sprints) {
+            sprints = 'TBD'; //If we have an NGEN Ticket, but no Sprint #, set the Sprint to "TBD"
+        }
+
         outputString += requirementNumber + ' | ' + (keys ? keys : 'NO JIRA FOUND') + ' | ' + ( sprints ? sprints : 'NO SPRINT FOUND') + '\n';
 
         if (finalMapping.size() == numberOfRequirements) {
