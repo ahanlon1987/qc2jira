@@ -10,7 +10,8 @@
       "jira":"0.8.2",
       "excel":"",
       "backbone":"1.1.2",
-      "node-fs":"0.1.7"
+      "node-fs":"0.1.7", 
+      "nodemailer":"1.0"
   },
   "author": "Aaron Hanlon",
   "license": "BSD-2-Clause"
